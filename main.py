@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from pytgcalls import PyTgCalls
-from pytgcalls.types.input_stream import InputStream, InputAudioStream
+from pytgcalls.types import MediaStream
 import yt_dlp
 
 API_ID = int(os.getenv("API_ID"))
@@ -31,11 +31,7 @@ async def play(_, message):
 
     await call_py.join_group_call(
         message.chat.id,
-        InputStream(
-            InputAudioStream(
-                url
-            )
-        )
+        MediaStream(url)
     )
 
     await msg.edit("🎵 Playing in VC...")
