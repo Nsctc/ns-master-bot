@@ -15,7 +15,7 @@ app = Client(
 
 async def main():
     await app.start()
-    print("Bot Started ✅")
+    print("✅ Bot Started Successfully")
     await asyncio.Event().wait()
 
 if __name__ == "__main__":
