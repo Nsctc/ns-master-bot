@@ -1,4 +1,5 @@
 import os
+import asyncio
 from pyrogram import Client
 
 API_ID = int(os.getenv("35356899"))
@@ -12,9 +13,11 @@ app = Client(
     bot_token=BOT_TOKEN
 )
 
-app.start()
-print("Bot Started ✅")
+async def main():
+    await app.start()
+    print("Bot Started ✅")
 
-import time
-while True:
-    time.sleep(10)
+    # keep running
+    await asyncio.Event().wait()
+
+asyncio.run(main())
