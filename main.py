@@ -3,9 +3,9 @@ import asyncio
 from pyrogram import Client
 
 try:
-    API_ID = int(os.getenv("35356899"))
-    API_HASH = os.getenv("f1e9f66c392270e798b6e95413601ae9")
-    BOT_TOKEN = os.getenv("8697551682:AAF7lCICDszOwZ6Lz3jbUJbTMhL_VZGtZ4o")
+    API_ID = int(os.getenv("API_ID"))
+    API_HASH = os.getenv("API_HASH")
+    BOT_TOKEN = os.getenv("BOT_TOKEN")
 
     print("API_ID:", API_ID)
     print("API_HASH:", API_HASH)
