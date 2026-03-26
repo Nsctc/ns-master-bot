@@ -1,6 +1,6 @@
 import os
 import asyncio
-from pyrogram import Client
+from pyrogram import Client, filters
 
 API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
@@ -13,9 +13,19 @@ app = Client(
     bot_token=BOT_TOKEN
 )
 
+# START command
+@app.on_message(filters.command("start"))
+async def start(client, message):
+    await message.reply_text("Hello 👋 Bot is working!")
+
+# PING command
+@app.on_message(filters.command("ping"))
+async def ping(client, message):
+    await message.reply_text("Pong 🏓")
+
 async def main():
     await app.start()
-    print("✅ Bot Started Successfully")
+    print("Bot Started Successfully ✅")
     await asyncio.Event().wait()
 
 if __name__ == "__main__":
