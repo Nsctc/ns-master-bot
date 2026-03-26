@@ -1,22 +1,20 @@
-from pyrogram import Client, filters
-from pytgcalls import PyTgCalls
-from handlers.play import play_handler
-from handlers.controls import controls
-from config import *
+import os
+from pyrogram import Client
 
-app = Client("bot",35356899 , api_hash=f1e9f66c392270e798b6e95413601ae9, bot_token=8697551682:AAGHZFUV7I6HC9NfPHZS1DWvm24kUJpNn8E)
-call = PyTgCalls(app)
+API_ID = int(os.getenv("35356899"))
+API_HASH = os.getenv("f1e9f66c392270e798b6e95413601ae9")
+BOT_TOKEN = os.getenv("8697551682:AAF7lCICDszOwZ6Lz3jbUJbTMhL_VZGtZ4o")
 
-@app.on_message(filters.command("start"))
-async def start(_, m):
-    await m.reply("🎵 NS Master Music Bot", reply_markup=controls())
-
-@app.on_message(filters.command("play"))
-async def play(_, message):
-    await play_handler(app, message, call)
+app = Client(
+    "bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 
 app.start()
-call.start()
+print("Bot Started ✅")
 
-import asyncio
-asyncio.get_event_loop().run_forever()
+import time
+while True:
+    time.sleep(10)
