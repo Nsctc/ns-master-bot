@@ -1,5 +1,4 @@
 import os
-import asyncio
 from pyrogram import Client, filters
 
 API_ID = int(os.environ.get("API_ID"))
@@ -21,10 +20,4 @@ async def start_handler(client, message):
 async def ping_handler(client, message):
     await message.reply_text("🏓 Pong!")
 
-async def main():
-    await app.start()
-    print("🔥 Bot Started")
-    await asyncio.Event().wait()
-
-if __name__ == "__main__":
-    asyncio.run(main())
+app.run()
