@@ -1,3 +1,6 @@
-ResolutionImpossible
-pytgcalls depends on tgcalls==0.0.2
-No matching distribution found
+pyrogram==2.0.106
+tgcrypto
+yt-dlp
+flask
+pymongo
+git+https://github.com/pytgcalls/pytgcalls
